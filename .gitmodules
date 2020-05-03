@@ -1,0 +1,3 @@
+[submodule "latex-letter"]
+	path = latex-letter
+	url = https://github.com/andre-lehnert/latex-letter
