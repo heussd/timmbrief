@@ -3,7 +3,7 @@ SHELL   := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-default: pdflatex clean
+default: latex clean
 
 latex-letter: ## OINK
 	@git clone --depth 1 https://github.com/andre-lehnert/latex-letter
@@ -30,8 +30,8 @@ vcard.tex: ## Retrieves personal data from the Contacts app
 	@tccutil reset AppleEvents && echo "✅ Recoved access to Automation again"
 
 
-pdflatex: latex-letter vcard.tex
-	pdflatex -halt-on-error "$$(ls -1 *.tex | grep -v "vcard" | grep -v "timmbrief")"
+latex: latex-letter vcard.tex
+	xelatex -halt-on-error "$$(ls -1 *.tex | grep -v "vcard" | grep -v "timmbrief")"
 	open *.pdf
 
 clean: ## Remove temporal compilation artifacts

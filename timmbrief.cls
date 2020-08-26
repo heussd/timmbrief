@@ -34,3 +34,12 @@
 \newcommand{\documentfilename}{\StrSubstitute[0]{\jobname}{"}{}}
 \subject{\documentfilename}
 
+\usepackage{graphicx}
+\newcommand{\signed}{
+    \vspace{-2.0cm}{
+    \rotatebox{2}{
+        \setmainfont[SizeFeatures={Size=50}]{Bellamy Signature}
+        \fontdimen2\font=3pt
+        \vcardfromname
+    }
+}}
