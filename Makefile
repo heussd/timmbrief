@@ -3,9 +3,9 @@ SHELL   := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-default: latex clean
+default: latex-letter/* latex clean
 
-latex-letter: ## OINK
+latex-letter/*: ## Checkout latex-letter submodule
 	@git clone --depth 1 https://github.com/andre-lehnert/latex-letter
 
 vcard.tex: ## Retrieves personal data from the Contacts app 
