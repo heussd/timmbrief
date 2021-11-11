@@ -29,6 +29,13 @@
 
 \settowidth{\fromwidth}{Filler–\vcardfromcitycode \vcardfromcity}
 
+\logo{%
+    {\fontsize{23}{21}\selectfont \textrm{\textbf{
+    \hspace{-0.4cm}
+    \parbox{1.2cm}{%
+    \uppercase{Dr. Timm Heuss}%
+    }}}}
+    \vspace{0.5cm}}
 
 \usepackage{xstring}
 \newcommand{\documentfilename}{\StrSubstitute[0]{\jobname}{"}{}}
