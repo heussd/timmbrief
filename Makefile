@@ -7,7 +7,7 @@ CONTAINER := podman run --rm --interactive \
         --tty --user="$$(id -u):$$(id -g)" \
         --volume "$$(pwd)":"$$(pwd)" \
         --workdir "$$(pwd)"  \
-        ghcr.io/heussd/timmbrief
+	ghcr.io/heussd/timmbrief:master
 
 default: latex-letter/* latex clean
 
