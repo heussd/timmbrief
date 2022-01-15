@@ -5,12 +5,10 @@ on:
     branches:
       - main
       - master
-    paths-ignore:
-      - '**.md'
-      - 'docker-compose.yml'
-  schedule:
-    - cron: '0 13 * * 0'
-
+    paths:
+      - '.github/workflows/**'
+      - '.github/CODEOWNERS'
+      - 'Dockerfile'
 
 jobs:
   build:
