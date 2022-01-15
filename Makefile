@@ -3,6 +3,12 @@ SHELL   := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+CONTAINER := podman run --rm --interactive \
+        --tty --user="$$(id -u):$$(id -g)" \
+        --volume "$$(pwd)":"$$(pwd)" \
+        --workdir "$$(pwd)"  \
+        mingc/latex 
+
 default: latex-letter/* latex clean
 
 latex-letter/*: ## Checkout latex-letter submodule
@@ -31,7 +37,7 @@ vcard.tex: ## Retrieves personal data from the Contacts app
 
 
 latex: latex-letter vcard.tex
-	xelatex -halt-on-error "$$(ls -1 *.tex | grep -v "vcard" | grep -v "timmbrief")"
+	$(CONTAINER) xelatex -halt-on-error "$$(ls -1 *.tex | grep -v "vcard" | grep -v "timmbrief")"
 	open *.pdf
 
 clean: ## Remove temporal compilation artifacts
